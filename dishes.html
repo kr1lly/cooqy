@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooqy Dishes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="darkmode.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="dishes" class="app-shell">
+
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">Cooqy</a>
+      <nav class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="dishes.html">Vegan</a>
+        <a href="index.salad">Salad</a>
+        <a href="index.meat">Meat</a>
+      </nav>
+      <div class="header-right">
+        <button class="theme-switcher" id="theme-switcher">
+          <svg class="moon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/>
+          </svg>
+          <svg class="sun" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M338.5-338.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="app-hero">
+    <div class="container app-hero-content">
+      <div class="app-hero-copy">
+        <h1>Your Cooqy Dish Journey</h1>
+        <p>The same warm color blend stays with you here, and every dish comes with a level so it feels like a real cooking path instead of a hard jump after login.</p>
+      </div>
+      <div class="app-user-panel">
+        <button class="profile-menu-button" id="profile-menu-button" type="button" aria-label="Open profile menu" aria-expanded="false" aria-controls="profile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="profile-menu" id="profile-menu" hidden>
+          <a class="profile-menu-link" href="#shop">Shop</a>
+          <a class="profile-menu-link" href="#leaderboards">Leaderboards</a>
+          <button class="profile-menu-item" id="logout-button" type="button">Log Out</button>
+        </div>
+        <div class="profile-card">
+          <div class="profile-photo-stack">
+            <div class="profile-photo-wrap">
+              <span class="profile-accessory" id="profile-accessory" aria-hidden="true"></span>
+              <label class="profile-photo" for="profile-upload">
+                <img id="profile-image" alt="Profile picture">
+                <span class="profile-photo-fallback" id="profile-fallback"></span>
+              </label>
+            </div>
+            <input id="profile-upload" class="profile-upload-input" type="file" accept="image/*">
+            <label class="profile-upload-button" for="profile-upload">Upload / Replace Photo</label>
+            <div class="profile-level">
+              <div class="profile-level-top">
+                <span class="profile-level-label">Level 1</span>
+                <span class="profile-level-points">20 / 100 XP</span>
+              </div>
+              <div class="profile-level-bar" aria-label="Level 1 progress">
+                <span class="profile-level-fill"></span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <p><strong>Chef:</strong> <span id="user-name"></span></p>
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="level-showcase" id="levels">
+    <div class="container">
+      <div class="weekly-challenge">
+        <div class="weekly-challenge-image">
+          <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=80" alt="Golden Garlic Fried Rice weekly challenge">
+          <span class="weekly-challenge-image-badge">Weekly Pick</span>
+        </div>
+        <div class="weekly-challenge-copy">
+          <span class="weekly-challenge-tag">Free For Everyone</span>
+          <h2>Weekly Dish Challenge</h2>
+          <p>This week's challenge is <strong>Golden Garlic Fried Rice</strong>. Anyone can join, cook it, and compare their plating with the community.</p>
+        </div>
+        <div class="weekly-challenge-panel">
+          <div class="weekly-challenge-stats">
+            <span>Challenge Level: 2</span>
+            <span>Time Goal: 20 mins</span>
+            <span>Reward: 40 XP</span>
+          </div>
+          <button class="weekly-challenge-button" type="button">Join Free Challenge</button>
+        </div>
+      </div>
+      <h2>Level-Based Dishes</h2>
+      <div class="level-grid">
+        <article class="level-card">
+          <div class="level-card-image">
+            <span class="level-badge">Level 1 Dish</span>
+            <img src="https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=1200&q=80" alt="Fried Egg">
+          </div>
+          <div class="level-card-content">
+            <h3>Fried Egg</h3>
+            <p>The perfect starting point for heat control, pan timing, and basic seasoning.</p>
+            <div class="level-meta">
+              <span>Starter Skill</span>
+              <span>6 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card">
+          <div class="level-card-image">
+            <span class="level-badge">Level 1 Dish</span>
+            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=1200&q=80" alt="Garlic Rice">
+          </div>
+          <div class="level-card-content">
+            <h3>Garlic Rice</h3>
+            <p>A straightforward rice dish that teaches stirring, aroma timing, and texture balance.</p>
+            <div class="level-meta">
+              <span>Easy Heat</span>
+              <span>12 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card">
+          <div class="level-card-image">
+            <span class="level-badge">Level 1 Dish</span>
+            <img src="https://www.kawalingpinoy.com/wp-content/uploads/2016/08/ginisang-togue-5.jpg" alt="Ginisang Togue">
+          </div>
+          <div class="level-card-content">
+            <h3>Ginisang Togue</h3>
+            <p>A simple, quick stir-fry that is perfect when you are just starting to build confidence in the kitchen.</p>
+            <div class="level-meta">
+              <span>Easy Prep</span>
+              <span>15 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card">
+          <div class="level-card-image">
+            <span class="level-badge">Level 2 Dish</span>
+            <img src="https://www.kitchensanctuary.com/wp-content/uploads/2016/03/Quick-Chicken-Stir-Fry-square-FS.jpg" alt="Chicken Stir Fry">
+          </div>
+          <div class="level-card-content">
+            <h3>Chicken Stir-Fry</h3>
+            <p>A solid step up that introduces batch cooking, sauce timing, and protein doneness.</p>
+            <div class="level-meta">
+              <span>Mid Skill</span>
+              <span>28 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card">
+          <div class="level-card-image">
+            <span class="level-badge">Level 2 Dish</span>
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=80" alt="Vegetable Omelette">
+          </div>
+          <div class="level-card-content">
+            <h3>Vegetable Omelette</h3>
+            <p>A small jump from a fried egg with folding, filling balance, and cleaner timing.</p>
+            <div class="level-meta">
+              <span>Pan Control</span>
+              <span>18 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 2 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.yummy.ph/yummy/uploads/2010/03/easy-pancit-bihon.jpg" alt="Pancit Bihon">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Pancit Bihon</h3>
+            <p>A balanced mid-level dish with multiple ingredients, layering, and timing that feels rewarding without being overwhelming.</p>
+            <div class="level-meta">
+              <span>Flavor Building</span>
+              <span>35 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 2 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80" alt="Creamy Pasta">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Creamy Pasta</h3>
+            <p>A richer mid-level dish that asks for better sauce control and careful finishing.</p>
+            <div class="level-meta">
+              <span>Sauce Timing</span>
+              <span>32 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 3 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=80" alt="Beef Stew">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Beef Stew</h3>
+            <p>A longer cook with layering, reduction, and texture management from start to finish.</p>
+            <div class="level-meta">
+              <span>Slow Build</span>
+              <span>75 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 3 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://tastephilippines.com/wp-content/uploads/2020/08/filipino-palabok.jpg" alt="Palabok">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Palabok</h3>
+            <p>A more advanced build with richer toppings and layered preparation for users ready to take on a stronger challenge.</p>
+            <div class="level-meta">
+              <span>Advanced Plating</span>
+              <span>55 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 3 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Seafood Platter">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Seafood Platter</h3>
+            <p>An advanced mixed-cook challenge where timing multiple elements matters a lot.</p>
+            <div class="level-meta">
+              <span>Multi-Step Cook</span>
+              <span>60 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 4 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80" alt="Herb Roast Chicken">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Herb Roast Chicken</h3>
+            <p>A bigger protein cook that rewards even seasoning, oven timing, and resting well.</p>
+            <div class="level-meta">
+              <span>Oven Timing</span>
+              <span>80 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 4 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80" alt="Homestyle Pizza">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Homestyle Pizza</h3>
+            <p>Dough shaping, topping balance, and bake control make this a satisfying next step.</p>
+            <div class="level-meta">
+              <span>Dough Work</span>
+              <span>90 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 5 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=80" alt="Ramen Bowl">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Ramen Bowl</h3>
+            <p>A layered build with broth, toppings, noodles, and timing all landing together.</p>
+            <div class="level-meta">
+              <span>Layered Build</span>
+              <span>95 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 5 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Salmon Plate">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Seared Salmon Plate</h3>
+            <p>Crisp skin, a gentle center, and composed sides make this a precision-focused dish.</p>
+            <div class="level-meta">
+              <span>Precision Sear</span>
+              <span>45 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 6 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://www.sugarandsoul.co/wp-content/uploads/2021/12/homemade-lasagna-recipe-19.jpg" alt="Lasagna">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Lasagna</h3>
+            <p>Layering, sauce consistency, and baking patience push this into a deeper challenge.</p>
+            <div class="level-meta">
+              <span>Layer Mastery</span>
+              <span>110 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 6 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80" alt="Sushi Roll Set">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Sushi Roll Set</h3>
+            <p>Knife work, rice consistency, and neat rolling raise the technical bar.</p>
+            <div class="level-meta">
+              <span>Knife Skill</span>
+              <span>70 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 7 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://media.istockphoto.com/id/1932845749/photo/sushi-rolls-with-salmon-cheese-caviar.jpg?s=612x612&w=0&k=20&c=0ltZ3jrS99uTKxD1fJV0_qAcgvO7UiDKISntIA2iS0A=" alt="Risotto">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Mushroom Risotto</h3>
+            <p>Constant attention, texture management, and gradual stock building make this demanding.</p>
+            <div class="level-meta">
+              <span>Texture Control</span>
+              <span>55 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 7 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1200&q=80" alt="Duck Breast">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Duck Breast</h3>
+            <p>Rendering fat correctly while keeping the center just right takes confidence and focus.</p>
+            <div class="level-meta">
+              <span>Advanced Sear</span>
+              <span>50 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 8 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80" alt="Lobster Thermidor">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Lobster Thermidor</h3>
+            <p>A rich special-occasion dish with seafood handling, sauce depth, and elegant finishing.</p>
+            <div class="level-meta">
+              <span>Luxury Technique</span>
+              <span>85 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 8 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Tasting Plate">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Tasting Plate Trio</h3>
+            <p>Multiple small components challenge your organization, pacing, and plating sense.</p>
+            <div class="level-meta">
+              <span>Plating Focus</span>
+              <span>90 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 9 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=80" alt="Wagyu Steak">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Wagyu Steak Course</h3>
+            <p>A premium cook where timing, rest, temperature, and elegant sides all matter.</p>
+            <div class="level-meta">
+              <span>Premium Timing</span>
+              <span>65 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 9 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=1200&q=80" alt="Fine Dining Dessert">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Fine Dining Dessert</h3>
+            <p>Temperature contrast, delicate textures, and visual precision make this a serious test.</p>
+            <div class="level-meta">
+              <span>Delicate Finish</span>
+              <span>85 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 10 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=80" alt="Chef's Table Platter">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Chef's Table Platter</h3>
+            <p>A showcase dish with multiple proteins, sauces, textures, and premium presentation.</p>
+            <div class="level-meta">
+              <span>Master Level</span>
+              <span>120 mins</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="level-card premium-dish-card" data-premium-dish="true">
+          <div class="level-card-image">
+            <span class="level-badge">Level 10 Dish</span>
+            <span class="premium-dish-badge">Cooqy+</span>
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Signature Degustation">
+            <div class="premium-dish-overlay">
+              <span>Subscribe to Cooqy+ to unlock this dish.</span>
+            </div>
+          </div>
+          <div class="level-card-content">
+            <h3>Signature Degustation</h3>
+            <p>The top-tier challenge: a refined multi-course experience that demands control across everything.</p>
+            <div class="level-meta">
+              <span>Ultimate Challenge</span>
+              <span>150 mins</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop-showcase" id="shop" hidden>
+    <div class="container">
+      <div class="section-heading">
+        <h2>Profile Mesh Shop</h2>
+        <p>Dress up your chef badge with paid accessories, or subscribe to Cooqy+. Meshes cost <strong>PHP 150</strong> and Cooqy+ costs <strong>PHP 300, subscription removes advertisements and supports the developer</strong>.</p>
+      </div>
+      <div class="shop-grid">
+        <article class="shop-card shop-card-featured">
+          <div class="shop-preview shop-preview-plus">
+            <span class="shop-preview-plus-mark">C+</span>
+          </div>
+          <h3>Cooqy+</h3>
+          <p>Subscribe to Cooqy+ for a premium membership feel inside the app and a dedicated VIP plan in the shop.</p>
+          <div class="shop-meta">
+            <span>PHP 300</span>
+            <button class="shop-action shop-action-subscribe" type="button" data-subscription="cooqy-plus" data-name="Cooqy+" data-price="300">Subscribe</button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-preview">
+            <span class="shop-preview-face">🙂</span>
+            <span class="shop-preview-accessory">🧢</span>
+          </div>
+          <h3>Street Cap Mesh</h3>
+          <p>A casual cap that gives your profile picture a laid-back kitchen-energy look.</p>
+          <div class="shop-meta">
+            <span>PHP 150</span>
+            <button class="shop-action" type="button" data-accessory="cap" data-symbol="🧢" data-name="Street Cap Mesh">Pay PHP 150</button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-preview">
+            <span class="shop-preview-face">🙂</span>
+            <span class="shop-preview-accessory">👓</span>
+          </div>
+          <h3>Glasses Mesh</h3>
+          <p>Clean round glasses for a focused, thoughtful chef profile.</p>
+          <div class="shop-meta">
+            <span>PHP 150</span>
+            <button class="shop-action" type="button" data-accessory="glasses" data-symbol="👓" data-name="Glasses Mesh">Pay PHP 150</button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-preview">
+            <span class="shop-preview-face">🙂</span>
+            <span class="shop-preview-accessory">👑</span>
+          </div>
+          <h3>Chef Crown Mesh</h3>
+          <p>A playful crown for users who want their avatar to feel top-tier.</p>
+          <div class="shop-meta">
+            <span>PHP 150</span>
+            <button class="shop-action" type="button" data-accessory="crown" data-symbol="👑" data-name="Chef Crown Mesh">Pay PHP 150</button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-preview">
+            <span class="shop-preview-face">🙂</span>
+            <span class="shop-preview-accessory">🎀</span>
+          </div>
+          <h3>Ribbon Mesh</h3>
+          <p>A softer accessory that adds a styled finish around the profile circle.</p>
+          <div class="shop-meta">
+            <span>PHP 150</span>
+            <button class="shop-action" type="button" data-accessory="ribbon" data-symbol="🎀" data-name="Ribbon Mesh">Pay PHP 150</button>
+          </div>
+        </article>
+      </div>
+      <p class="shop-note" id="shop-note">Purchased meshes stay saved for this account on this browser.</p>
+    </div>
+  </section>
+
+  <section class="leaderboard-showcase" id="leaderboards">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Leaderboards</h2>
+        <p>Dummy rankings for now, just to show how the competitive side can look.</p>
+      </div>
+      <div class="leaderboard-card">
+        <div class="leaderboard-row leaderboard-head">
+          <span>Rank</span>
+          <span>Chef</span>
+          <span>Points</span>
+          <span>Favorite Dish</span>
+        </div>
+        <div class="leaderboard-row">
+          <span>#1</span>
+          <span>Chef Nova</span>
+          <span>4,820</span>
+          <span>Palabok</span>
+        </div>
+        <div class="leaderboard-row">
+          <span>#2</span>
+          <span>Chef Ember</span>
+          <span>4,215</span>
+          <span>Pancit Bihon</span>
+        </div>
+        <div class="leaderboard-row">
+          <span>#3</span>
+          <span>Chef Sol</span>
+          <span>3,980</span>
+          <span>Adobo</span>
+        </div>
+        <div class="leaderboard-row">
+          <span>#4</span>
+          <span>Chef Luna</span>
+          <span>3,540</span>
+          <span>Ginisang Togue</span>
+        </div>
+        <div class="leaderboard-row">
+          <span>#5</span>
+          <span>Chef Atlas</span>
+          <span>3,205</span>
+          <span>Sinangag</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Cooqy. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
